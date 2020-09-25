@@ -5,6 +5,10 @@ def lowest_terms(x):
     n=int(x[0])
     d=int(x[1])
     sign=''
+    if n==0:
+        return '0'
+    if d==0:
+        return 'Undefined'    
     if n<0 or d<0:
         sign='-'
     n=(n**2)**0.5
