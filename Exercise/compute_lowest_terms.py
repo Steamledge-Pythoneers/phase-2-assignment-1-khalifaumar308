@@ -13,27 +13,11 @@ def lowest_terms(x):
         sign='-'
     n=(n**2)**0.5
     d=(d**2)**0.5
-    if d>n:
-        if d%n==0:
-            return '{}1/{}'.format(sign,int(d/n))
-        else:
-            while True:
-                if n%2==0 and d%2==0:
-                    n=n/2
-                    d=d/2
-                else:
-                    return '{}{}/{}'.format(sign,int(n),int(d))
-    if n>d:
-       if n%d==0:
-         return '{}{}/1'.format(sign,int(n/d))
-       else:
-            while True:
-                s=3
-                if n%s==0 and d%s==0:
-                    n=n/s
-                    d=d/s
-                        
-                else:
-                    return '{}{}/{}'.format(sign,int(d),int(n))
-                
-print(lowest_terms('-50/25'))
+    x=n
+    y=d
+    while y!=0:
+        i=y
+        y=x%y
+        x=i
+    return '{}{}/{}'.format(sign,int(n/x),int(d/x))      
+print(lowest_terms('-12/-26'))
