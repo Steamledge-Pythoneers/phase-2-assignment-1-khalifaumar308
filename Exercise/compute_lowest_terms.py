@@ -1,30 +1,35 @@
 ## TODO: complete the function "lowest_terms" below
 
 def lowest_terms(x):
-    """A function that accepts a fraction as input,
+    """A function that accepts a fraction in string  as input,
     compute and returns the lowest 
     possible form of the fraction"""
-    x = x.split('/')#split x into a list
-    numerator = int(x[0])#assign n as the numerator
-    denomenator = int(x[1])#assign d as the denomerator
-    sign = ''#assign an empty string as the defult sign
-    if numerator < 0 and denomenator <0:#check if both n and d are negative
-        sign = ''
-    elif numerator < 0 or denomenator <0:#check if either n or d is negative
-        sign = '-'    
-    if numerator == 0:#assert that no ZeroDivisionError
+    #split the fraction into a list and assign the elements to
+    # numerator and denomenator 
+    x = x.split('/')
+    numerator = int(x[0])
+    denomenator = int(x[1])
+    #define the sign of the final answer
+    sign = ''
+    if numerator < 0 and denomenator < 0:
+        sign =''
+    elif numerator < 0 or denomenator < 0:
+        sign ='-'    
+    #check for invalid inputs    
+    if numerator == 0:
         return '0'
-    if denomenator == 0:#assert that no ZeroDivisionError
-        return 'Undefined'    
-    numerator = (numerator**2)**0.5#make n positive
-    denomenator = (denomenator**2)**0.5
-    #assign the values of n and d to x/y to find hcf
-    x = numerator #copy the value of the numerator
-    y = denomenator #copy the value of denomenator
-    #find the hcf of n and d
-    while y != 0:
-        i=y
-        y=x%y
-        x=i
-    return '{}{}/{}'.format(sign,int(numerator/x),int(denomenator/x))      
+    if denomenator == 0:
+        return 'Undefined' 
+    #make numerator and denomenator positive       
+    numerator = abs(numerator)
+    denomenator = abs(denomenator)
+    #copy the values of numerator and denomenator to use in finding hcf
+    hcf = numerator
+    denum_copy = denomenator 
+    #find the highest common factor for numerator and denominator
+    while denum_copy  != 0:
+        i = denum_copy 
+        denum_copy  = hcf % denum_copy 
+        hcf = i
+    return '{}{}/{}'.format(sign,int(numerator/hcf),int(denomenator/hcf))      
 
