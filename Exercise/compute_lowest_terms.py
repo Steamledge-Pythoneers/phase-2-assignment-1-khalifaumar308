@@ -1,9 +1,16 @@
 ## TODO: complete the function "lowest_terms" below
 
 def lowest_terms(x):
-    """A function that accepts a fraction in string  as input,
-    compute and returns the lowest 
-    possible form of the fraction"""
+    """A function that compute and returns the lowest 
+    possible form of a fraction
+    
+    Input parameter:
+        x (str): a fraction in the form 'numerator/denomenator'
+    
+    Returns:
+        type: str
+        the lowest form of the fraction in the form 'numerator/denomenator'
+    """
     #split the fraction into a list and assign the elements to
     # numerator and denomenator 
     x = x.split('/')
