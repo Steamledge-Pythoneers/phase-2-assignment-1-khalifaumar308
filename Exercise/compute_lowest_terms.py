@@ -10,6 +10,7 @@ def lowest_terms(x):
     Returns:
         type: str
         the lowest form of the fraction in the form 'numerator/denomenator'
+        also returns Undefined if the denomenator is zero    
     """
     #split the fraction into a list and assign the elements to
     # numerator and denomenator 
@@ -22,11 +23,11 @@ def lowest_terms(x):
         sign =''
     elif numerator < 0 or denomenator < 0:
         sign ='-'    
-    #check for invalid inputs    
+    #check for invalid inputs
+    if denomenator == 0:
+        return 'Undefined'     
     if numerator == 0:
         return '0'
-    if denomenator == 0:
-        return 'Undefined' 
     #make numerator and denomenator positive       
     numerator = abs(numerator)
     denomenator = abs(denomenator)

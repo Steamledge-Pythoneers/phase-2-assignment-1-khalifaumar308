@@ -23,3 +23,7 @@ def test_lowest_terms_ZeroDivisionError():
 
 def test_lowest_terms_0():
 	assert(lowest_terms("0/12") == "0")
+
+def test_lowest_terms_undefined():
+	assert(lowest_terms("0/0") == "Undefined")
+
